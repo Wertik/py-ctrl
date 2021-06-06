@@ -22,9 +22,8 @@ class Connection:
         try:
             sock.connect((self.ip, self.port))
             return True
-        except (TimeoutError, socket.timeout, ConnectionRefusedError) as e:
+        except (TimeoutError, socket.timeout, ConnectionRefusedError, ConnectionError, OSError) as e:
             print(f'{self.ip}:{self.port} : Request timed out with timeout of {self.timeout}. Failed to connect.')
-            #raise TimeoutError
             return False
 
     def send_data(self, input, parse_data=False):

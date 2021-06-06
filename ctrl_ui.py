@@ -43,9 +43,11 @@ def scan_devices(port):
 
         # Match the IP, filter anything that doesn't start with 10 or end with more than 2 digits.
         # This is a dumb thing to append less ips. Private IPs for a B class usually start with 10.x
-        ip_out = re.findall('10.[0-9]+\.[0-9]+\.[0-9]{1,2}', y, re.M | re.I)
+        ip_out = re.findall('10|192.[0-9]+\.[0-9]+\.[0-9]+', y, re.M | re.I)
         if ip_out:
             ip = ip_out[0]
+
+            print(ip)
 
             try:
                 conn = network.create_connection(ip, port, timeout=3)
