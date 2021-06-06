@@ -27,7 +27,7 @@ class Led(Perifery):
         self.color = color
 
     def draw(self, layout):
-        layout.append([sg.Text(f'LED {self.pin}')])
+        layout.append([sg.Text(f'LED (pin: {self.pin})')])
 
         row = []
 
@@ -78,7 +78,7 @@ class Motor(Perifery):
         self.angle = angle
 
     def draw(self, layout):
-        layout.append([sg.Text(f'MOTOR {self.pin}')])
+        layout.append([sg.Text(f'Motor (pin: {self.pin})')])
 
         row = []
 
